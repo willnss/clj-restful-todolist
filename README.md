@@ -1,47 +1,47 @@
-# clj-restful-todolist
+# Projeto clj-restful-todolist
 
-FIXME: description
+API com um CRUD bem simplificada de lista de tarefas, sem testes automatizados e doc, apenas para exercitar os conhecimentos básicos recém adquiridos da linguagem Clojure. Neste projeto foi utilizado as bibliotecas abaixo:
 
-## Criar a base de dados
-Conectar ao servidor de banco de dados e criar o banco de dados `todosdb`
+- Compojure para criação da api
+- Toucan para interação com o banco de dados Postgres 
+- Migratus para automatizar a criação da tabela necessária
+- Schema para simplificar o model-binding e validação do paylod
 
-## Installation
+Foi utilizado o Docker/docker-compose para simplificar a criação do banco de dados.
 
-Download from http://example.com/FIXME.
+## Ferramentas usadas para implementar o projeto e rodar
 
-## Usage
+- clojure CLI 1.10.2.796 
+- openjdk/java 14.0.2 2020-07-14
+- docker 20.10.2 (Docker Desktop com WSL2 backend)
+- ubuntu 20 LTS + vscode-server e extensão WSL do Visual Code
+- leiningen 2.9.5
 
-FIXME: explanation
+## Como executar o projeto
 
-    $ java -jar clj-restful-todolist-0.1.0-standalone.jar [args]
+**Note que o projeto foi originalmente desenvolvimento em ambiente Linux com o Ubuntu rodando sob o WSL2 no Windows 10**
 
-## Options
+### 1.  Após realizar o clone do projeto abra o terminal e execute o comando abaixo para baixar a imagem do postgres:
+```bash
+$ docker-compose up -d
+```
 
-FIXME: listing of options this app accepts.
+### 2. Execute o migration do projeto através do comando abaixo, será necessário que o container com o postgres iniciado no passo anterior esteja em execução:
+```bash
+$ lein migratus migrate
+```
+Caso deseje visualizar o banco utilize o pg-admin através do navegador pelo link (http://localhost:16543), o container e credênciais também estão especificados no arquivo `docker-compose.yml`
 
-## Examples
+### 3. Caso a migration tenha sido executada com sucesso execute o comando abaixo para subir a aplicação e acesse o link (http://localhost:3000/swagger) em seguida:
 
-...
+```bash
+$ lein run
+```
 
-### Bugs
+## Observações 
 
-...
+Caso precise alterar as informações de conexão altere os arquivos `project.clj`  na seção `:migratus` e e `src/clj_restful_todolist/core.clj` na definição de `db-spec`.
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+## Licença
 
-## License
-
-Copyright © 2021 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+Vide arquivo LICENSE

@@ -1,4 +1,4 @@
-(ns clj-restful-todolist.todoitem
+(ns clj-restful-todolist.handlers.todoitem
   (:require [schema.core :as s]
             [clj-restful-todolist.string-util :as str]
             [clj-restful-todolist.models.todoitem :refer [Todoitem]]

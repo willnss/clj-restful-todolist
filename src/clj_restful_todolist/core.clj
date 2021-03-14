@@ -3,7 +3,7 @@
             [toucan.models :as models]
             [ring.adapter.jetty :refer [run-jetty]]
             [compojure.api.sweet :refer [api routes]]
-            [clj-restful-todolist.todoitem :refer [todoitem-routes]])
+            [clj-restful-todolist.handlers.todoitem :refer [todoitem-routes]])
   (:gen-class))
 
 (def db-spec
