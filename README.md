@@ -32,11 +32,12 @@ $ lein migratus migrate
 ```
 Caso deseje visualizar o banco utilize o pg-admin através do navegador pelo link (http://localhost:16543), o container e credênciais também estão especificados no arquivo `docker-compose.yml`
 
-### 3. Caso a migration tenha sido executada com sucesso execute o comando abaixo para subir a aplicação e acesse o link (http://localhost:3000/swagger) em seguida:
+### 3. Caso a migration tenha sido executada com sucesso execute o comando abaixo para subir a aplicação:
 
 ```bash
 $ lein run
 ```
+Acesse o link (http://localhost:3000/swagger) para visualizar o swagger e testar os endpoints.
 
 ## Observações 
 
