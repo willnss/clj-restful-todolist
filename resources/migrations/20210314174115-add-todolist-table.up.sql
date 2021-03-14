@@ -1,0 +1,1 @@
+CREATE TABLE todolist (id SERIAL PRIMARY KEY, description VARCHAR(255), done BOOLEAN NOT NULL);

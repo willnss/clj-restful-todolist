@@ -1,0 +1,29 @@
+version: '3'
+
+services: 
+  postgres:
+    image: postgres
+    environment: 
+      PGUSER: "postgres"
+      POSTGRES_DB: todosdb
+      POSTGRES_PASSWORD: "pgsql123"
+    ports: 
+      - "5432:5432"
+    networks: 
+      - postgres-compose-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@psql.br"
+      PGADMIN_DEFAULT_PASSWORD: "pgsql123"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-compose-network      
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
