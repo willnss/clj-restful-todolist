@@ -21,18 +21,18 @@ Foi utilizado o Docker/docker-compose para simplificar a criação do banco de d
 
 **Note que o projeto foi originalmente desenvolvimento em ambiente Linux com o Ubuntu rodando sob o WSL2 no Windows 10**
 
-### 1.  Após realizar o clone do projeto abra o terminal e execute o comando abaixo para baixar a imagem do postgres:
+1.  Após realizar o clone do projeto abra o terminal e execute o comando abaixo para baixar a imagem do postgres:
 ```bash
 $ docker-compose up -d
 ```
 
-### 2. Execute o migration do projeto através do comando abaixo, será necessário que o container com o postgres iniciado no passo anterior esteja em execução:
+2. Execute o migration do projeto através do comando abaixo, será necessário que o container com o postgres iniciado no passo anterior esteja em execução:
 ```bash
 $ lein migratus migrate
 ```
 Caso deseje visualizar o banco utilize o pg-admin através do navegador pelo link (http://localhost:16543), o container e credênciais também estão especificados no arquivo `docker-compose.yml`
 
-### 3. Caso a migration tenha sido executada com sucesso execute o comando abaixo para subir a aplicação:
+3. Caso a migration tenha sido executada com sucesso execute o comando abaixo para subir a aplicação:
 
 ```bash
 $ lein run
